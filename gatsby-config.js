@@ -1,34 +1,18 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Pete's Dev Diary`,
+    description:
+      "I'm a software developer who loves React! React, StyledComponents, JavaScript, TypeScript, Storybook, React-Testing-Library, and various other languages.",
     author: `@gatsbyjs`,
+    keywords: ["tech", "blog", "React", "Gatsby", ""],
+    siteURL: "https://peterfinn.dev",
+    siteImage: "name-of-open-graphy-image.jpg", // pop an image in the static folder to use it as og:image
+    config: {
+      headerHeight: 64,
+      sideBarWidth: 240,
+      twitter: "sleepy__pete", // no need to include the @
+      github: "firefox0102",
+    },
   },
-  plugins: [
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-  ],
+  plugins: ["@pauliescanlon/gatsby-theme-gatstats"],
 }

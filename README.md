@@ -1,97 +1,162 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+## 👋 Hello There
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+This site is built using [@pauliescanlon/gatsby-theme-gatstats](https://github.com/PaulieScanlon/gatsby-theme-gatstats)
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+<a href="https://gatsby-theme-gatstats.netlify.com/" target="_blank">
+<img src="https://gatsby-theme-gatstats.netlify.com/images/gatstats-open-graph-image.jpg" alt="gatsby-theme-gatstats main image" />
+</a>
 
-## 🚀 Quick start
+<div>
 
-1.  **Create a Gatsby site.**
+![npm (scoped)](https://img.shields.io/npm/v/@pauliescanlon/gatsby-theme-gatstats?style=flat-square)
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+![npm](https://img.shields.io/npm/dt/@pauliescanlon/gatsby-theme-gatstats?style=flat-square)
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+![NPM](https://img.shields.io/npm/l/@pauliescanlon/gatsby-theme-gatstats?style=flat-square)
 
-1.  **Start developing.**
+[![Netlify Status](https://api.netlify.com/api/v1/badges/675dda28-97f6-471c-9418-ae8357e30fcd/deploy-status)](https://app.netlify.com/sites/gatsby-theme-gatstats/deploys)
 
-    Navigate into your new site’s directory and start it up.
+</div>
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+## GatStats is a dashboard for your tech blog.
 
-1.  **Open the source code and start editing!**
+##### ... or a dashblog if you prefer? 🤷‍♂️
 
-    Your site is now running at `http://localhost:8000`!
+Properties sourced from frontmatter in `src/posts/[name].mdx` are used to create data visualizations to wow your readers.
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+## 👁️ Preview
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+- [Live Demo](https://gatsby-theme-gatstats.netlify.com/)
+- [Storybook](https://gatsby-theme-gatstats.netlify.com/storybook/)
 
-## 🧐 What's inside?
+## 🚀 Getting started
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+### Install
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+```
+npm install @pauliescanlon/gatsby-theme-gatstats
+```
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+## Setup
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+### gatsby-config.js
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+Add the `siteMetaData` and `@pauliescanlon/gatsby-theme-gatstats` to your `gatsby-config.js`
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+```
+module.exports = {
+  siteMetadata: {
+    title: "Your blog title",
+    description: "I like tech",
+    keywords: ["tech", "blog", "boop"],
+    siteUrl: 'https://gatsby-theme-gatstats.netlify.com/',
+    siteImage: 'name-of-open-graphy-image.jpg', // pop an image in the static folder to use it as og:image
+    config: {
+      headerHeight: 64,
+      sideBarWidth: 240,
+      twitter: 'pauliescanlon', // no need to include the @
+      github: 'pauliescanlon'
+    },
+  },
+  plugins: ['@pauliescanlon/gatsby-theme-gatstats']
+}
+```
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+### directory structure
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+If you'd like to add more pages and posts add them to your src dir.
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+<!-- prettier-ignore -->
+```
+|-- src
+    |-- pages
+        |-- about.mdx
+    |-- posts
+        |-- year-post-dir
+            |-- some-post-dir
+                |-- some-post.mdx
+                |-- some-image.jpg
+                |-- some-embedding-image.jpg
+```
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+### frontmatter setup
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+For **pages** use the following template. The icon field is a path for any icon. This is an example is from [Material Icons](https://material.io/resources/icons/?style=baseline). The icon property is whats used to determine if an `.mdx` file is a page or a post. Pages appear in the side bar navigation
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+```
+---
+title: About
+icon: 'M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 10c2.7 0 5.8 1.29 6 2H6c.23-.72 3.31-2 6-2m0-12C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'
+---
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+# Demo About
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+This is about from the demo
 
-## 🎓 Learning Gatsby
+```
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+For **posts** use the following template
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+```
+---
+title: Some Post
+tags: ["Gatsbyjs", "React"]
+date: 2019-11-13
+status: draft // setting the status to draft hides the post from blog
+featuredImage: some-image.jpg
+embeddedImages:
+  - some-embeddedImage.jpg
+---
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+```
 
-## 💫 Deploy
+### 🖼️ Embedding Images
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+Embedding images into `.mdx` can be tricky but using `MdxRenderer` we can still use `frontmatter` to pass graphQL image data to any part of the post body
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+### frontmatter
+
+Add locally sourced images to frontmatter using `embeddedImages` then pass a reference to them to the `<EmbeddedImage />` component via props.
+
+The `<EmbeddedImage />` component is part of the theme and is passed to all `.mdx` files using the `MDXProvider` so you don't have to import anything for this to work.
+
+There's a couple of optional helper props for `width` and `justifyContent` so you get a bit more control over size and alignment.
+
+### EmbeddedImage
+
+The `<EmbeddedImage />` component accepts a width prop which can be used to control the image size. The `width` prop can either be a single string which will apply the the same size across all breakpoints or an array of sizes to use across the breakpoints defined in the theme.
+
+```
+---
+embeddedImages:
+  - image1.jpg
+  - image2.jpg
+---
+
+Post body text
+
+<EmbeddedImage
+  src={props.embedded.image1}
+  width={['100%', '75%', '50%', '25%']}
+/>
+
+More post body text
+
+<EmbeddedImage
+  src={props.embedded.image2}
+  width="25%"
+  justifyContent="center"
+/>
+
+```
+
+### 👥 Component Shadowing
+
+You know about component shadowing right? By shadowing the `filePath/fileName` you can replace any component in the theme with your own.
+
+Once such component might be `src/components/Code/Code.tsx` this file is in charge of formatting code snippets. For the time being the only way to format the colours used in code snippets is to change the theme used by `prism-react-renderer`
+
+If you need to re-style the code snippets shadow this component and change the bits you need.
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P31B7G8)
