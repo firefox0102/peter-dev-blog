@@ -58,7 +58,7 @@ By having a clear interface between your App Control Flow code, you can easily s
 
 This is where you dispatch events and fetch data. I won’t go into too much detail here as it’s mostly just stock Redux, but there is one thing I want to highlight about this layer. ** Selectors! **
 
-Selectors are a newer concept to the Redux ecosystem, and we use them as an interface between the presentation layer and the app state. You might also use Containers for this, although the ability to mix, match, and combine selectors makes them far superior IMHO.
+Selectors are a newer concept to the Redux ecosystem, and we use them as an interface between the presentation layer and the app state. You might also use Containers for this, although the ability to mix, match, and combine selectors makes them a no brainer to use with or without Containers!
 
 The use of Selectors is incredibly important for this one reason: **It abstracts the shape of your application state out of your presentational layer**. Selectors allow you to keep your App State separated from some of the details your presentation layer might need.
 
