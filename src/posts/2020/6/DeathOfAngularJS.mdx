@@ -34,31 +34,11 @@ Things to talk about:
 
 #### The Death of AngularJS
 
-<EmbeddedImage
-  src={props.embedded.image2}
-  width={["75%"]}
-  justifyContent="center"
-/>
-
 Imagine you’re a medium sized business who’s just made it through a few years of painstaking growth, and you’ve finally managed to make it to a pretty comfortable place in your business. You’re no longer in danger of going bankrupt every week, and you can start to focus on quality a little more. This is exactly where SalesLoft found itself in January of 2018 when it was announced that AngularJS was being deprecated by Google. Overnight, our app went from decent quality with a few minor issues to approaching extinction.
 
 The demise of AngularJS was such a shock for so many developers because it did EVERYTHING for you. It handled app state, control flow, data fetching, presentation. Our entire application was written in AngularJS and suddenly Google had just volunteered us for an entire app rewrite.
 
 This is why I find separation of concerns so vital in frontend architecture. It’s so easy to just constantly focus on execution and speed of development, but you need to think long term about some of the things that could kill your business, or at the least cause all of your dev team to quit because they’re forced to work with “ancient” (see: 4 years old) technologies.
-
-## Clean Separation of Concerns
-
-So how do we achieve a clear separation of concerns without causing too much extra overhead for speed of development? Great question!
-
-Here’s a simple example that illustrates our current redux control flow. For the sake of brevity I will do a bit of hand waving over some details, but feel free to read Part 2 for this post to see more detail about the specific layers.
-
-<EmbeddedImage
-  src={props.embedded.image3}
-  width={["100%"]}
-  justifyContent="center"
-/>
-
-It might seem like a waste of time now, but if your company ever decided to completely switch View libraries (trust me it’s not that uncommon) you’ll have saved yourself years of a painstaking application rewrite.
 
 #### That's It For Now!
 
