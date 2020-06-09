@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Pete's Dev Diary`,
     description:
-      "I'm a software developer who loves React! React, StyledComponents, JavaScript, TypeScript, Storybook, React-Testing-Library, and various other languages.",
+      "Hi I'm Peter, but you can call me Pete. I'm a software developer with a knack for Frontend, and these days you can find me working with all things React.",
     author: `@gatsbyjs`,
     keywords: ["tech", "blog", "React", "Gatsby", ""],
     siteURL: "https://peterfinn.dev",
