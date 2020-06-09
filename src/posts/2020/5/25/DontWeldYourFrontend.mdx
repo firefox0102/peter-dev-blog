@@ -39,7 +39,7 @@ No matter your project size or situation, we would probably all agree that it is
 
 ### Application Layers
 
-I like to think of our Redux application in large slices, seen below. Each of these layers represents a logical bucket that you can divide our application code into. These three layers each have a specific responsibility in the app architechture, and don't necessarily relate to a specific technology.
+I like to think of our web app in large slices, seen below. Each of these layers represents a logical bucket that you can divide our application code into. These three layers each have a specific responsibility in the app architechture, but don't necessarily relate to a specific technology and could be implemented without Redux. This is more of a mental model than a strict guide.
 
 <EmbeddedImage
   src={props.embedded.image1}
@@ -47,7 +47,7 @@ I like to think of our Redux application in large slices, seen below. Each of th
   justifyContent="center"
 />
 
-Let’s break each of these layers down and talk about how we’re achieving some clear separation of concerns.
+Let’s break each of these layers of my mental model down and talk about how we can achieve a clear separation of concerns.
 
 #### Data Access Layer
 
@@ -60,7 +60,9 @@ This is where you dispatch events and fetch data. I won’t go into too much det
 
 Selectors are a newer concept to the Redux ecosystem, and we use them as an interface between the presentation layer and the app state. You might also use Containers for this, although the ability to mix, match, and combine selectors makes them far superior IMHO.
 
-The use of Selectors is incredibly important for this one reason: **It abstracts the shape of your application state out of your presentational layer**. Selectors allow you to keep your App State separated from some of the details your presentation layer might need. For example, if a component needs a number formatted as a percentage, your selector can handle the transformation of the data on the fly instead of storing the data in app state.
+The use of Selectors is incredibly important for this one reason: **It abstracts the shape of your application state out of your presentational layer**. Selectors allow you to keep your App State separated from some of the details your presentation layer might need.
+
+For example, say a component needs to pull a specific piece of data out of a deeply nested object in your app state. Using selectors helps to ensure that your presentational layer doesn't know where that data comes from, nor should it care. If later you go back and refactor your app state to be less deeply nested, guess what? You only have to change your Selector code instead of the 15 components that use it!
 
 #### Presentational Layer
 
@@ -88,6 +90,8 @@ Although might seem like a waste of time now, by having clear boundaries in your
 
 ## That's It For Now!
 
-Although I focus on Redux you can implement these same patterns in lots of different ways, with lots of different technologies. The important part is to always check in and ask:
+Although I used Redux to help implement this in our project, you can use these same patterns in lots of different ways, with lots of different technologies.
 
-What would happen if this new technology I'm introducing suddenly dies/stops being supported/pivots in a direction I don't like? Is it going to be welded to our code forever?
+The important part is to always check in and ask:
+
+What would happen if this new technology I'm introducing suddenly stops being supported, pivots in a direction I don't like, or is replaced by a superior tool? Is it going to be welded to our code forever?
