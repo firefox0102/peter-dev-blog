@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { IIcon } from "../../../../types"
+import { IIcon } from "../../types"
 interface IIconProps extends IIcon, React.HTMLAttributes<HTMLOrSVGElement> {}
 
 export const Icon: React.FC<IIconProps> = ({
