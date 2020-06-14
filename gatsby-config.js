@@ -1,18 +1,52 @@
 module.exports = {
   siteMetadata: {
-    title: `Pete's Dev Diary`,
+    name: "Pete's Dev Diary",
     description:
       "Hello there! I'm Peter, but you can call me Pete. I'm a software developer with a knack for Frontend, and these days you can find me working with all things React.",
-    author: `@gatsbyjs`,
-    keywords: ["tech", "blog", "React", "Gatsby", ""],
-    siteURL: "https://peterfinn.dev",
-    siteImage: "name-of-open-graphy-image.jpg", // pop an image in the static folder to use it as og:image
+    keywords: [
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "StyledComponents",
+      "Jest",
+      "React Testing Library",
+      "Storybook",
+    ],
+    siteUrl: "https://peterfinn.dev",
+    siteImage: "",
+    profileImage: `images/profile_image.png`,
+    lang: `en`,
     config: {
-      headerHeight: 64,
-      sideBarWidth: 240,
-      twitter: "sleepy__pete", // no need to include the @
-      github: "firefox0102",
+      sidebarWidth: 280,
     },
   },
-  plugins: ["@pauliescanlon/gatsby-theme-gatstats"],
+  plugins: [
+    `@pauliescanlon/gatsby-mdx-embed`,
+    {
+      resolve: "@pauliescanlon/gatsby-theme-terminal",
+      options: {
+        source: ["posts", "speaking"],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Peter Finn`,
+        short_name: `PF`,
+        start_url: `/`,
+        lang: `en`,
+        background_color: `#282a36`,
+        theme_color: `#ff79c6`,
+        display: `standalone`,
+        icon: `src/manifesticon-512x512.png`,
+      },
+    },
+    `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "", // TODO:
+      },
+    },
+  ],
 }

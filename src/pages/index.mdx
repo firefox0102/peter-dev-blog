@@ -1,0 +1,248 @@
+---
+navigationLabel: home
+---
+
+import { mix } from "@theme-ui/color"
+import { PostCard } from "../components/PostCard"
+
+<Alert variant="success">👋 Hey there!</Alert>
+<Divider />
+
+# [peter-finn](#peter-finn)
+
+Senior Front End Developer based in Atlanta / GA.
+
+React, JavaScript, TypeScript, StyledComponents, Storybook, TDD (React Testing Library) and a bit of backend when needed!
+
+<Button
+  as="a"
+  variant="success"
+  href=""
+  target="_blank"
+  sx={{
+    mr: 2,
+  }}
+>
+  View CV/Resume
+</Button>
+
+<Link
+  href="https://drive.google.com/file/d/1l0x20rtVINhRdfSNcOcdFEhSRNfgCC1x/view?usp=sharing"
+  target="_blank"
+  title="View CV"
+>
+  .pdf version
+</Link>
+<Divider />
+<Divider />
+
+## [intro](#intro)
+
+
+Hello there! 👋 My name is Peter, but you can call me Pete. I am a positive thinking, self starting software developer with a passion for all things Frontend. Although I am a technologist, I actually consider my greatest strengths to be communication and working with people! I may never be the smartest person in the room, but I will always have your back.
+
+
+<Divider />
+
+<Flex
+  sx={{ flexWrap: 'wrap'}}
+>
+<Box
+  sx={{
+    width: ["100%", "100%", "55%"],
+    mb: 3,
+    pr: [0,0, 4],
+  }}
+>
+
+## contact
+
+<Text>Twitter</Text>
+<Link
+  href="https://twitter.com/sleepy__pete"
+  target="_blank"
+  variant="styles.a"
+>
+  https://twitter.com/sleepy__pete
+</Link>
+<Divider />
+
+<Text>GitHub</Text>
+<Link
+  href="https://github.com/firefox0102"
+  target="_blank"
+  variant="styles.a"
+>
+  https://github.com/firefox0102
+</Link>
+<Divider />
+
+<Divider />
+</Box>
+
+<Box
+  sx={{
+    width: ["100%", "100%", "45%"],
+    mb: 3
+  }}
+>
+
+## blog-topics
+
+<Divider />
+
+<SourceTags>
+  {(tags) => (
+    <Box>
+      {tags
+        .sort((a, b) => b.percent - a.percent)
+        .map((tag, index) => {
+          const { name, count, percent } = tag
+          return (
+            <Badge
+              key={index}
+              variant="primary"
+              sx={{
+                mr: 2,
+                mb: 2,
+                color: mix("secondary", "primary", `${index / tags.length}`),
+                borderColor: mix(
+                  "secondary",
+                  "primary",
+                  `${index / tags.length}`
+                ),
+              }}
+            >
+              {name}
+            </Badge>
+          )
+        })}
+    </Box>
+  )}
+</SourceTags>
+
+<Divider />
+<Divider />
+
+</Box>
+</Flex>
+
+
+<Flex sx={{ flexWrap: "wrap" }}>
+  <Box
+    sx={{
+      width: ["100%", "50%", "33.333%"]
+    }}
+  >
+
+  ## history
+
+  <Text>SalesLoft</Text>
+  <Text variant='styles.small'>Oct 2016 - Now</Text>
+  <Divider />
+
+  <Text>Cardlytics</Text>
+  <Text variant='styles.small'>Jan 2015 - Oct 2016</Text>
+  <Divider />
+
+  <Text>IBM Cloud Video</Text>
+  <Text variant='styles.small'>May 2014 - Dec 2014</Text>
+  <Divider />
+  <Divider />
+  </Box>
+
+  <Box
+    sx={{
+      width: ["100%", "50%", "33%"]
+    }}
+  >
+
+  ## speaking
+
+  <Text>Vueconf USA</Text>
+  <Text variant='styles.small'>Spring 2018</Text>
+  <Divider />
+
+  <Text>We Rise/Refactr Tech</Text>
+  <Text variant='styles.small'>2017 && 2018</Text>
+  <Divider />
+  <Divider />
+  </Box>
+
+  <Box
+    sx={{
+      width: ["100%", "50%", "33%"]
+    }}
+  >
+
+  ## volunteer
+
+  <Text>The Atlanta Vue.js Meetup</Text>
+  <Text variant='styles.small'>Founder & Organizer</Text>
+  <Text variant='styles.small'>Oct 2017 - May 2019</Text>
+  <Divider />
+
+  <Text>Water Watch - Open Source Project</Text>
+  <Text variant='styles.small'>Chatahoochie River Keeper</Text>
+  <Text variant='styles.small'>June 2017 - Dec 2018</Text>
+  <Divider />
+  <Divider />
+  </Box>
+
+</Flex>
+
+
+## latest-posts
+
+<Divider />
+
+<SourceList filter="posts">
+  {(posts) => (
+    <Flex
+      sx={{
+        flexWrap: "wrap",
+        ml: (theme) => `-${theme.space[2]}px`,
+        mr: (theme) => `-${theme.space[2]}px`,
+      }}
+    >
+      {posts
+        .filter((edge) => !edge.node.frontmatter.isPrivate)
+        .sort(
+          (a, b) =>
+            new Date(b.node.frontmatter.date) -
+            new Date(a.node.frontmatter.date)
+        )
+        .splice(0, 4)
+        .map((edge, index) => {
+          const {
+            frontmatter: { title, featuredImage, tags, date },
+            excerpt,
+            fields: { slug },
+          } = edge.node
+          return (
+            <PostCard
+              key={index}
+              title={title}
+              featuredImage={featuredImage}
+              tags={tags}
+              date={date}
+              excerpt={excerpt}
+              slug={slug}
+            />
+          )
+        })}
+    </Flex>
+  )}
+</SourceList>
+<Divider />
+<Flex
+  sx={{
+    justifyContent: "center",
+  }}
+>
+  <Box>
+    <Button as="a" variant="styles.buttons.ghost" href="/posts">
+      More posts ✏️
+    </Button>
+  </Box>
+</Flex>
