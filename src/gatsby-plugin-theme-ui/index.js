@@ -9,7 +9,7 @@ export default {
     muted: "#8b87ea",
     primary: "#f056c7",
     secondary: "#c39eff",
-    error: "#ff4343",
+    error: "#fb44b9",
     success: "#58e6d9",
     background: "#131127",
     surface: "#232140",
@@ -53,6 +53,9 @@ export default {
         },
       },
     },
+    ul: {
+      fontSize: "20px",
+    },
   },
 
   cards: {
@@ -73,6 +76,8 @@ export default {
     body: "system-ui, sans-serif",
     monospace: "Menlo, monospace",
   },
+
+  fontSizes: [18, 20, 24, 32, 48, 64],
 
   fontWeights: {
     body: 400,

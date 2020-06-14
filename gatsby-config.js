@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    title: "Pete's Dev Diary",
     name: "Pete's Dev Diary",
     description:
       "Hello there! I'm Peter, but you can call me Pete. I'm a software developer with a knack for Frontend, and these days you can find me working with all things React.",
@@ -18,6 +19,8 @@ module.exports = {
     lang: `en`,
     config: {
       sidebarWidth: 280,
+      twitter: "sleepy__pete",
+      github: "firefox0102",
     },
   },
   plugins: [

@@ -9,6 +9,7 @@
     "build": "gatsby build"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.27",
     "@mdx-js/mdx": "^1.5.7",
     "@mdx-js/react": "^1.5.7",
     "@pauliescanlon/gatsby-mdx-embed": "^0.0.19",
@@ -16,6 +17,15 @@
     "@theme-ui/color": "^0.3.1",
     "@theme-ui/components": "^0.3.1",
     "@theme-ui/prism": "^0.3.0",
+    "@vx/axis": "^0.0.192",
+    "@vx/curve": "^0.0.192",
+    "@vx/glyph": "^0.0.192",
+    "@vx/grid": "^0.0.192",
+    "@vx/group": "^0.0.192",
+    "@vx/responsive": "^0.0.192",
+    "@vx/scale": "^0.0.192",
+    "@vx/shape": "^0.0.192",
+    "@vx/tooltip": "^0.0.192",
     "date-fns": "^2.11.1",
     "gatsby": "^2.19.22",
     "gatsby-plugin-google-analytics": "^2.1.31",
