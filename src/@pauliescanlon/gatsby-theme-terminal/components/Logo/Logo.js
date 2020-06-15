@@ -6,10 +6,11 @@ export const Logo = () => (
   <Link
     to="/"
     sx={{
+      width: "100%",
       ":focus": {
         outline: "none",
         transition: ".2s linear box-shadow",
-        boxShadow: (theme) => `0 2px 0 0 ${theme.colors.primary}`,
+        boxShadow: (theme) => `0 1px 0 0 ${theme.colors.primary}`,
       },
     }}
   >
