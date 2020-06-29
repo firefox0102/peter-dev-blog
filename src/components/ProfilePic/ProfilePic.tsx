@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Styled, jsx } from "theme-ui"
 
-const profileImage = require("./profile_image.png")
+const profileImage = require("./profile_image.jpg")
 
 export const ProfilePic: React.FC = () => (
   <Styled.div
