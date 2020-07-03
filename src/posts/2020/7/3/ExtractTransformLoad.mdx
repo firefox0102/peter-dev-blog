@@ -1,6 +1,6 @@
 ---
 title: Redux + ETL
-tags: ["Redux", "Frontend Architechture", "Separtion of Concerns"]
+tags: ["React", "Redux", "Frontend Architechture", "Separtion of Concerns"]
 date: 2020-07-03
 featuredImage: etlBannerImage.jpg
 embeddedImages:
@@ -8,23 +8,23 @@ embeddedImages:
   - image2.png
 ---
 
-In my last blog post about frontend patterns, I talked about the high level separation of concerns for each slice of the frontend. Today I want to talk a little more about the middle layer where most of our Redux code actually lives, the "Control Flow" layer, and give a little more information on my opinion of a very common discussion in the realm of application state.
+In my last blog post about frontend patterns, I talked about the high level separation of concerns for each slice of the frontend. Today I want to talk a little more about the middle layer where most of our Redux code actually lives, the "Control Flow" layer, and give a little more information on my opinion of a very common discussion around API responses in a Frotnend project.
 
 ## Cleaning Up Our App Store
 
-While working on the Costello product at SalesLoft, I had a very interesting debate with my coworkers to try to figure out what our preference was for keeping data in the app redux store. While working on a new feature, I realized that we were fetching data from Elasticsearch, which gave us back a really deeply nested data object. We were storing the Elasticsearch hit straight in to our app redux store so we could access any piece of the data from anywhere in the app. This meant that whenever we might need a piece of the hit, it was probably already available in the application state.
+While working on the Costello product at SalesLoft, I had a very interesting debate with my coworkers to try to figure out what our preference was for keeping data in the application Redux Store. While working on a new feature, I realized that we were fetching data from Elasticsearch, which gave us back a really deeply nested data object. We were storing the Elasticsearch hit straight in to our Store so we could access any piece of the data from anywhere in the app. This meant that whenever we might need a piece of the hit, it was probably already available.
 
-However, after a while of working with this code, my spider senses started tingling. I felt like there were two major issues with our current approach that could be improved on.
+However, one day while working on a new feature that used a response from Elasticsearch, my spider senses started tingling. I felt like there were two major issues with our current approach of storing the API Repsonse directly in state, and thought that could be improved on.
 
 ### Problem 1
 
-The first issue with our current setup was that the selectors that feed the "Presentational" layer were constantly traversing really deeply nested objects in state. This meant that our state tree was impossible to interpret as a human because it was so deeply nested and complex.
+The first issue with our current setup was that the selectors that feed the **Presentational** layer were constantly traversing really deeply nested objects in state. This meant that our state tree was impossible to interpret as a human because it was so deeply nested and complex.
 
 We also frequently had bugs pop up where Elasticsearch returned something we didn't expect somewhere 5 levels down in the object tree, which would cause features to break because they werent prepared to handle each of the 50 different points of failure in the deeply nested object.
 
-Because our React code was directly accessing these objects, there were a LOT of points of failure that we needed to address whenever we realized that we had an edge case with a hit from Elasticsearch.
+Because our React code was directly accessing these complex nested objects, there were a LOT of points of failure that we needed to address whenever we realized that we had an edge case with a hit from Elasticsearch.
 
-Check out this real example that extracts a name for a particular opportunity based on your CRM type. Remember, we had this kind of code everywhere in our React components.
+Check out this real example that extracts a name for a particular opportunity based on your CRM type. **Remember**, we had this kind of code everywhere in our Application and React components.
 
 ```jsx
 const getLabel = (hit: any, crmType: CRMType) => {
@@ -67,11 +67,9 @@ This code is only extracting a LABEL! Think about how many times you might need 
 
 ### Problem 2
 
-The Second issue was this; by storing the Elasticsearch hit directly in state we were letting our backend technology dictate the way our frontend code was written. Now, to me this is actually even more important and is the kind of thing that keeps me up at night!
+The Second issue was this; by storing the Elasticsearch hit directly in state we were letting our backend technology dictate the way our frontend code was written. In my mind this is actually even more important to address, and is the kind of thing that keeps me up at night! What if we decided to change where we fetched this data from, moving from Elasticsearch to a different API endpoint? By storing this in state and accessing these objects directly in the Presentational layer, we were coupling together our backend and our frontend in a way that could really hurt us in the future.
 
-What if we decided to change where we fetched this data from, moving from Elasticsearch to a different API endpoint? By storing this in state and accessing these objects directly in the Presentational layer, we were coupling together our backend and our frontend in a way that could really hurt us in the future.
-
-The above code example for `getLabel` lives directly inside of a React component. If we kept following that same pattern, imagine how many components we will have to change if we ever decide to stop using Elasticsearch.
+The code example for `getLabel` lives directly inside of a React component. If we kept following that same pattern, we would essentially have to re-write the frontend if we ever decide to stop using Elasticsearch.
 
 Obviously something needed to change, and after having a discussion as a team we came up with a pretty elegant alternative!
 
@@ -85,7 +83,7 @@ As we were having this discussion about how to shift our data access patterns, o
   can be used together, and finally delivers data in a presentation-ready format
 </Message>
 
-Soounds like a pretty decent solution for our problem, right?
+Sounds like a pretty decent solution for our problem, right?
 
 We decided moving forward that we should follow some new rules while developing:
 
@@ -122,7 +120,7 @@ Here's a detailed break down of how this fit in to our Redux flow for fetching d
   </Box>
 </Card>
 
-Pretty straight forward right? I consider that one of the key indicators of a good Architechtural pattern. If you make the **EASY** thing the **RIGHT** thing, your team will have a much easier time [falling in to the pit of success](https://blog.codinghorror.com/falling-into-the-pit-of-success/)!
+Pretty straight forward right? All we're doing is adding a small layer of code in between our API response and storing it in the Redux Store that transforms it in to a more Frontend friendly format. This is a great reminder that if you make the **EASY** thing the **RIGHT** thing, your team will have a much easier time [falling in to the pit of success](https://blog.codinghorror.com/falling-into-the-pit-of-success/)!
 
 ### Code Example
 
@@ -144,11 +142,11 @@ const getExampleDataFromHit = (esHit: IExampleESHit): ITransformedData => {
 }
 ```
 
-Do you see how deeply nested the value of `the_data_we_actually_need` is nested in this Elasticsearch object? This might seem is a **REAL** example from a feaure I just finished (obviously simplified).
+Do you see how deeply nested the value of `the_data_we_actually_need` is nested in this Elasticsearch object? This might seem exxagerated, but this is a **REAL** example from a feaure I just finished (anonymized a bit).
 
-In this example, we create a TypeScript type for our Elasticsearch hit object shape called `IExampleESHit`, and a second type for our clean data state called `ITransformedData`. The point of these functions is just to transform from TypeA -> TypeB, and there's not much more to it!
+We also created a TypeScript type for our Elasticsearch hit object shape called `IExampleESHit`, and a second type for our clean data state called `ITransformedData`. Having a clearly defined Type for this response on the frontend allows us to easily see the shape of this complex object without having to actually hit the API, which I find really convenient.
 
-Here's what our `IExampleESHit` TypeScript interface looks like. The important part here is that if any of these values might cause issues because they're not always returned from the API, you can easily add that logic to this TypeScript type and now there are no surprises!
+Here's what our `IExampleESHit` TypeScript interface looks like. Another important point to note is that if any of these values might cause issues because they're not always returned from the API, you can easily add that logic to this TypeScript type and now there are no surprises!
 
 ```javascript
 export interface IExampleESHit {
@@ -170,7 +168,9 @@ export interface IExampleESHit {
 
 ## That's It For Now!
 
-Althought this concept seems really simple, it's important to remember how impactful this can be on a frontend project. By simply adding a Transformation layer between your API responses and your App Store, you could gain:
+That's pretty much it! In short, we have decided to add a thin layer of code in between our API calls and our Reducers to help transform the API responses in to a more Frontend friendly format.
+
+Althought this might seem really simple, it is important to remember how impactful this kind of tweak could be on a frontend project. By simply adding a Transformation layer between your API responses and your App Store, you could gain:
 
 - Decoupling your backend and frontend technologies (Yay separtion of concerns!)
 - A flatter, more human friendly Redux Store state tree
