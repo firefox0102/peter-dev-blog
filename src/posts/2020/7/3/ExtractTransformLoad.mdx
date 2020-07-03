@@ -24,9 +24,7 @@ However, one day while working on a new feature that used a response from Elasti
 
 The first issue with our current setup was that the selectors that feed the **Presentational** layer were constantly traversing really deeply nested objects in state. This meant that our state tree was impossible to interpret as a human because it was so deeply nested and complex.
 
-We also frequently had bugs pop up where Elasticsearch returned something we didn't expect somewhere 5 levels down in the object tree, which would cause features to break because they werent prepared to handle each of the 50 different points of failure in the deeply nested object.
-
-Because our React code was directly accessing these complex nested objects, there were a LOT of points of failure that we needed to address whenever we realized that we had an edge case with a hit from Elasticsearch.
+We also frequently had bugs pop up where Elasticsearch returned something we didn't expect somewhere 5 levels down in the object tree, which would cause features to break because they werent prepared to handle each of the 50 different points of failure in the deeply nested object. In some cases our React code was even directly accessing these complex nested objects, there were a LOT of points of failure that we needed to address whenever we realized that we had an edge case with a hit from Elasticsearch.
 
 Check out this real example that extracts a name for a particular opportunity based on your CRM type. **Remember**, we had this kind of code everywhere in our Application and React components.
 
