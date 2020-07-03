@@ -16,7 +16,7 @@ Today I want to share a recent experience that has helped me see one path for an
 
 ## Cleaning Up Our App Store
 
-While working on the Costello product at SalesLoft, I had a very interesting debate with my coworkers to try to figure out what our preference was for keeping data in the application Redux Store. While working on a new feature, I realized that we were fetching data from Elasticsearch, which gave us back a really deeply nested data object. We were storing the Elasticsearch hit straight in to our Store so we could access any piece of the data from anywhere in the app. This meant that whenever we might need a piece of the hit, it was probably already available.
+While working on the Deals product at SalesLoft, I had a very interesting debate with my coworkers to try to figure out what our preference was for keeping data in the application Redux Store. While working on a new feature, I realized that we were fetching data from Elasticsearch, which gave us back a really deeply nested data object. We were storing the Elasticsearch hit straight in to our Store so we could access any piece of the data from anywhere in the app. This meant that whenever we might need a piece of the hit, it was probably already available.
 
 However, one day while working on a new feature that used a response from Elasticsearch, my spider senses started tingling. I felt like there were two major issues with our current approach of storing the API Repsonse directly in state, and thought that could be improved on.
 
