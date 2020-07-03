@@ -146,7 +146,7 @@ const getExampleDataFromHit = (esHit: IExampleESHit): ITransformedData => {
 }
 ```
 
-Do you see how deeply nested the value of `the_data_we_actually_need` is nested in this Elasticsearch object? This might seem exxagerated, but this is a **REAL** example from a feaure I just finished (anonymized a bit).
+Do you see how deeply nested the value of `the_data_we_actually_need` is nested in this Elasticsearch object? This might seem exaggerated, but this is a **REAL** example from a feaure I just finished (anonymized a bit).
 
 We also created a TypeScript type for our Elasticsearch hit object shape called `IExampleESHit`, and a second type for our clean data state called `ITransformedData`. Having a clearly defined Type for this response on the frontend allows us to easily see the shape of this complex object without having to actually hit the API, which I find really convenient.
 
