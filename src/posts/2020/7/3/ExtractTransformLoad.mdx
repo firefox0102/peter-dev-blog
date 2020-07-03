@@ -8,7 +8,11 @@ embeddedImages:
   - image2.png
 ---
 
-In my last blog post about frontend patterns, I talked about the high level separation of concerns for each slice of the frontend. Today I want to talk a little more about the middle layer where most of our Redux code actually lives, the "Control Flow" layer, and give a little more information on something I recently learned that helped me find a solution for a long standing question: Should I transform my API responses before using them?
+Throughout my career I have had a long standing question that I've never been able to solve:
+
+**Should I transform my API responses before using them in my frontend code?**
+
+Today I want to share a recent experience that has helped me see one path for answering this question!
 
 ## Cleaning Up Our App Store
 
@@ -168,7 +172,7 @@ export interface IExampleESHit {
 
 ## That's It For Now!
 
-That's pretty much it! In short, we have decided to add a thin layer of code in between our API calls and our Reducers to help transform the API responses in to a more Frontend friendly format.
+So after all that, I think I might've found a pretty decent an answer to the question of what to do with my API responses before using them. In short, we have decided to add a thin layer of code in between our API calls and our Reducers to help transform the API responses in to a more Frontend friendly format.
 
 Althought this might seem really simple, it is important to remember how impactful this kind of tweak could be on a frontend project. By simply adding a Transformation layer between your API responses and your App Store, you could gain:
 
@@ -176,5 +180,6 @@ Althought this might seem really simple, it is important to remember how impactf
 - A flatter, more human friendly Redux Store state tree
 - Cleaner, safer Presentational code
 - Centralized points of failure for unexpected changes in your API response format
+- ...probably even more that I'm not thinking of!
 
-... and potentially even more!
+🐦 Feel free to let me know on [Twitter](https://twitter.com/sleepy__pete) if you've got any other insights or opinions on this topic!
