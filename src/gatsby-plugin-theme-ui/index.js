@@ -5,15 +5,14 @@ export default {
   ...baseTheme,
   colors: {
     ...baseTheme.colors,
-    // GatStats color palette
-    // text: "#FFFFFF",
-    // muted: "#8b87ea",
-    // primary: "#f056c7",
-    // secondary: "#c39eff",
-    // error: "#fb44b9",
-    // success: "#58e6d9",
-    // background: "#131127",
-    // surface: "#232140",
+    text: "#FFFFFF",
+    muted: "#8b87ea",
+    primary: "#f056c7",
+    secondary: "#c39eff",
+    error: "#fb44b9",
+    success: "#58e6d9",
+    background: "#1D1B31",
+    surface: "#232140",
   },
 
   styles: {
