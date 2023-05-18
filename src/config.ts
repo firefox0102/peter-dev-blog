@@ -1,4 +1,4 @@
-import type { Site, SocialObjects } from "./types"
+import type { Site, SocialObject } from "./types"
 
 export const SITE: Site = {
   website: "https://peterfinn.dev/",
@@ -19,17 +19,18 @@ export const LOGO_IMAGE = {
   height: 24,
 }
 
-export const SOCIALS: SocialObjects = [
-  {
-    name: "Github",
-    href: "https://github.com/firefox0102",
-    linkTitle: ` ${SITE.title} on Github`,
-    active: true,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/peter-finn-4a957a235",
-    linkTitle: `Find Pete on LinkedIn`,
-    active: true,
-  },
-]
+export const githubSocial: SocialObject = {
+  name: "Github",
+  href: "https://github.com/firefox0102",
+  linkTitle: "Find Me on Github",
+  active: true,
+}
+
+export const linkedInSocial: SocialObject = {
+  name: "LinkedIn",
+  href: "https://www.linkedin.com/in/peter-finn-4a957a235",
+  linkTitle: `Find Pete on LinkedIn`,
+  active: true,
+}
+
+export const SOCIALS: SocialObject[] = [githubSocial, linkedInSocial]

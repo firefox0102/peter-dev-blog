@@ -1,0 +1,388 @@
+---
+import { Fragment } from "react"
+import Layout from "@layouts/Layout.astro"
+import Header from "@components/Header.astro"
+import Hr from "@components/Hr.astro"
+import { SOCIALS, githubSocial, linkedInSocial } from "@config"
+import { ExperiencePageCompanyBlock } from "@components/ExperiencePageCompanyBlock"
+import { ExperienceGroupLeftAdornment } from "@components/ExperienceGroupLeftAdornment"
+import { SkillsBlock } from "@components/SkillsBlock"
+import socialIcons from "@assets/socialIcons"
+import LinkButton from "@components/LinkButton.astro"
+---
+
+<Layout>
+  <Header />
+  <main id="main-content">
+    <section class="content-section">
+      <div class="flex items-end justify-between">
+        <h2 class="mr-2">Peter Finn</h2>
+        <p>Seattle, Wa</p>
+      </div>
+      <div class="flex items-end justify-between">
+        <p><span class="font-medium">Personal Site:</span> peterfinn.dev</p>
+        <LinkButton
+          href={githubSocial.href}
+          className="link-button flex"
+          title={githubSocial.linkTitle}
+        >
+          <Fragment set:html={socialIcons["Github"]} />
+          <div class="ml-1">
+            {githubSocial.href}
+          </div>
+        </LinkButton>
+      </div>
+      <div class="flex items-end justify-between">
+        <h4 class="mr-2">peter.finn.code@gmail.com</h4>
+        <LinkButton
+          href={linkedInSocial.href}
+          className="link-button flex"
+          title={linkedInSocial.linkTitle}
+        >
+          <Fragment set:html={socialIcons["LinkedIn"]} />
+          <div class="ml-1">
+            {linkedInSocial.href}
+          </div>
+        </LinkButton>
+      </div>
+    </section>
+
+    <Hr />
+
+    <section class="content-section">
+      <h2>Current Top Skills</h2>
+      <SkillsBlock
+        skillLabels={[
+          "TypeScript",
+          "JavaScript",
+          "React",
+          "Redux + RTK",
+          "RTKQuery",
+          "Values Interving",
+        ]}
+      />
+      <h3>Things I'm Interested In</h3>
+      <SkillsBlock
+        skillLabels={[
+          "Static Type Languages",
+          "GQL",
+          "Elixir",
+          "Mentorship",
+          "Frontend Architecture",
+        ]}
+      />
+    </section>
+
+    <Hr />
+
+    <section class="content-section">
+      <h2>Experience</h2>
+
+      <!-- DataGrail Block -->
+      <div>
+        <ExperiencePageCompanyBlock
+          companyName="DataGrail"
+          startDate="August 2020"
+          endDate="Present"
+        />
+        <div class="flex">
+          <ExperienceGroupLeftAdornment />
+          <div class="flex flex-col">
+            <div class="experience-block">
+              <h5>Staff Software Engineer</h5>
+              <p>April 2023 - Present</p>
+            </div>
+            <div class="experience-block">
+              <h5>Software Engineering Manager</h5>
+              <p>August 2022 - April 2023</p>
+            </div>
+            <div class="experience-block">
+              <h5>Staff Software Engineer</h5>
+              <p>August 2021 - August 2022</p>
+            </div>
+            <div class="experience-block">
+              <h5>Senior Software Engineer</h5>
+              <p>August 2020 - August 2021</p>
+              <p>
+                Hired on as the first Frontend focused developer for the
+                engineering team. Engineering teams were struggling to build out
+                a delightful, interactive web experience for customers while
+                also keeping things maintainable and tested. Initial goals were
+                to migrate away from SSR (Ruby Rails + HAML) to React, educate
+                team on how to unit test frontend code, introduce TypeScript,
+                improve tooling and infrastructure, improve developer enablement
+                by creating a culture of learning and continuous improvement,
+                and much more.
+              </p>
+            </div>
+            <div class="experience-block">
+              <h4>🎉 Things I'm Proud Of 🎉</h4>
+              <ul>
+                <li>
+                  Participated in two separate revamps of the Company Core
+                  Values during this tenure, as well as smaller initiatives
+                  designed to help the company adapt to remote work effectively
+                </li>
+                <li>
+                  Owned the Frontend architecture of the entire platform, and
+                  helped enable the team to achieve their goal of improving the
+                  app experience to the point of rivaling modern SAAS
+                  applications.
+                </li>
+                <li>
+                  Owned the Frontend architecture of the entire platform, and
+                  helped enable the team to achieve their goal of improving the
+                  app experience to the point of rivaling modern SAAS
+                  applications.
+                </li>
+                <li>
+                  Project Lead for multiple Frontend focused, mission critical
+                  projects at once to help secure SalesForce as a customer at an
+                  early stage
+                </li>
+                <li>
+                  Successfully rolled out a Design System, which was implemented
+                  as a custom theme on top of React Material UI. (Although I
+                  have created a UI Kit from scratch previously, a third party
+                  solution made a lot more sense for the business at its current
+                  stage and skill level in engineering which I learned the hard
+                  way in my previous experiences)
+                </li>
+                <li>
+                  Introduced tools such as React Testing Library along with unit
+                  testing best practices, eslint and Prettier, the use of themes
+                  with Styled Components, and a Design Review process to help
+                  reduce the number of visual defects and missed customer flows
+                  introduced in to the product
+                </li>
+              </ul>
+              <SkillsBlock
+                label="Skills & Stack: "
+                skillLabels={[
+                  "TypeScript",
+                  "React",
+                  "Redux",
+                  "Software Architecture",
+                  "Ruby on Rails",
+                  "API Design",
+                ]}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SalesLoft Block -->
+      <div>
+        <ExperiencePageCompanyBlock
+          companyName="SalesLoft"
+          startDate="Oct 2016"
+          endDate="August 2020"
+        />
+        <div class="flex">
+          <ExperienceGroupLeftAdornment />
+          <div class="flex flex-col">
+            <div class="experience-block">
+              <h5>Senior Frontend Engineer</h5>
+              <p>Dec 2017 - August 2020</p>
+            </div>
+            <div class="experience-block">
+              <h5>Frontend Engineer</h5>
+              <p>Oct 2016 - Dec 2017</p>
+              <p>
+                Hired on as an early Frontend focused engineer when the company
+                was around 80 people (Series A/B Stage). Quickly established
+                myself as a passionate proponent of best practices, peer
+                feedback, and company core values. Worked on many various
+                delivery teams delivering excellent products and features
+                throughout the Sales Enablement stack.
+              </p>
+            </div>
+            <div class="experience-block">
+              <h4>🎉 Things I'm Proud Of 🎉</h4>
+              <ul>
+                <li>
+                  Selected to represent the SalesLoft engineering organization
+                  to work with the Costello engineering team on the acquisition
+                  and integration of the Costello company platform into the
+                  SalesLoft ecosystem. Integration project was the #1 company
+                  objective, was completed in 90 days. Involved technologies
+                  such as React, Typescript, and a bit of Golang + Ruby
+                </li>
+                <li>Organized and lead the Frontend Internal Meetups</li>
+                <li>
+                  Selected to work on the Frontend Enablement Team, which was
+                  founded to help augment and accelerate the organization's
+                  Frontend abilities through building the SalesLoft Design
+                  System and other packages, advising teams on Frontend
+                  Architectural Patterns, and educating developers on best
+                  practices through personally organized and leading the
+                  Frontend Internal Meetups.
+                </li>
+                <li>
+                  Selected as one of two engineers representing SalesLoft in the
+                  acquisition and integration of the NoteNinja company platform
+                  into the SalesLoft ecosystem. Project deadline was set for an
+                  incredibly aggressive 90 days from acquisition, which we then
+                  completed in 68. Worked to integrate the frontend React
+                  projects, as well as the Node.js GraphQL layer
+                </li>
+                <li>
+                  Nominated by manager to serve on the SalesLoft Core Values
+                  interview team, and to attend the LEAD program (6 month
+                  leadership development program)
+                </li>
+                <li>
+                  Recipient of the company wide SalesLoft Star award (Jan 2018)
+                </li>
+                <li>
+                  "React Evangelist" at SalesLoft, helping to lead the effort to
+                  re-write the entire frontend application from AngularJS into
+                  React
+                </li>
+                <li>
+                  Regularly consult with Software Architects as a member of the
+                  UI Architecture Brain Trust
+                </li>
+                <li>
+                  Led the project to convert our build pipeline from the Rails
+                  Asset Pipeline to Gulp, which then enabled us to migrate to
+                  Webpack 4.x
+                </li>
+              </ul>
+              <SkillsBlock
+                label="Skills & Stack: "
+                skillLabels={[
+                  "TypeScript",
+                  "React",
+                  "Redux",
+                  "Software Architecture",
+                  "AngularJS",
+                  "Ruby on Rails",
+                ]}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cardlytics Block -->
+      <div>
+        <ExperiencePageCompanyBlock
+          companyName="Cardlytics"
+          startDate="Jan 2015"
+          endDate="Oct 2016"
+        />
+        <div class="flex">
+          <div class="flex flex-col">
+            <div class="experience-block">
+              <h5>Full Stack Engineer</h5>
+              <p>
+                Full Stack developer on various Agile teams that created
+                internal content management systems for running high volume
+                advertising campaigns (millions of calls per second). Main
+                responsibilities include creating AngularJS apps, ASP.NET APIs,
+                working with ORMs and MySQL databases, and collaborating with
+                the UX team to design and implement great looking web apps. Also
+                balanced daily development responsibilities with many R&D,
+                “Black Ops”, and internally requested side projects.
+              </p>
+            </div>
+            <SkillsBlock
+              label="Skills & Stack: "
+              skillLabels={[
+                "JavaScript",
+                "AngularJS",
+                "UX Design",
+                "ASP.NET",
+                "C#",
+              ]}
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Clearleap Block -->
+      <div>
+        <ExperiencePageCompanyBlock
+          companyName="Clearleap"
+          startDate="May 2014"
+          endDate="Dec 2014"
+        />
+        <div class="flex">
+          <div class="flex flex-col">
+            <div class="experience-block">
+              <h5>Full Stack Engineer</h5>
+              <p>
+                Created and maintained an internal web application used to run
+                and manage the company automated testing suites. Application was
+                used for weekly reports to executive team. Application built
+                with JavaScript, Java, Groovy on Grails, Bootstrap, Apache
+                JMeter, Quartz, PostgreSQL
+              </p>
+            </div>
+            <SkillsBlock
+              label="Skills & Stack: "
+              skillLabels={[
+                "JavaScript",
+                "AngularJS",
+                "Java",
+                "Groovy",
+                "UX Design",
+                "ASP.NET",
+                "QA Automation Testing",
+              ]}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Hr />
+
+    <section class="content-section">
+      <h2>Education</h2>
+      <ExperiencePageCompanyBlock
+        companyName="Southern Polytechnic State University"
+        startDate="Fall 2011"
+        endDate="December 2014"
+      />
+    </section>
+    <Hr />
+  </main>
+
+  <style>
+    .content-section {
+      @apply pb-4 pt-4;
+    }
+
+    .content-section h2 {
+      @apply text-2xl font-semibold tracking-wide;
+    }
+
+    .content-section h3 {
+      @apply text-lg font-semibold tracking-wide;
+    }
+
+    .experience-block {
+      @apply pb-2;
+    }
+
+    .experience-block h4 {
+      @apply my-2 text-lg font-medium;
+    }
+
+    .experience-block h5 {
+      @apply text-base font-medium;
+    }
+
+    .experience-block p {
+      @apply text-sm;
+    }
+
+    .experience-block ul {
+      @apply mb-4 ml-8 text-sm;
+      list-style: disc;
+    }
+  </style>
+</Layout>

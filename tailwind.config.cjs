@@ -1,10 +1,10 @@
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
-      return `rgba(var(${variableName}), ${opacityValue})`;
+      return `rgba(var(${variableName}), ${opacityValue})`
     }
-    return `rgb(var(${variableName}))`;
-  };
+    return `rgb(var(${variableName}))`
+  }
 }
 
 /** @type {import('tailwindcss').Config} */
@@ -57,9 +57,17 @@ module.exports = {
       transparent: "transparent",
     },
     fontFamily: {
-      mono: ["IBM Plex Mono", "monospace"],
+      sans: [
+        "Inter var",
+        "ui-sans-serif",
+        "Segoe UI",
+        "Helvetica Neue",
+        "Arial",
+        "Noto Sans",
+        "sans-serif",
+      ],
     },
     // },
   },
   plugins: [require("@tailwindcss/typography")],
-};
+}
