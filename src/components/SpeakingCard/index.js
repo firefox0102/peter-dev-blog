@@ -1,1 +1,0 @@
-export { SpeakingCard } from "./SpeakingCard"
