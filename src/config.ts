@@ -1,4 +1,4 @@
-import type { Site, SocialObjects } from "./types";
+import type { Site, SocialObjects } from "./types"
 
 export const SITE: Site = {
   website: "https://peterfinn.dev/",
@@ -8,16 +8,16 @@ export const SITE: Site = {
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerPage: 3,
-};
+}
 
-export const LOCALE = ["en-EN"]; // set to [] to use the environment default
+export const LOCALE = ["en-EN"] // set to [] to use the environment default
 
 export const LOGO_IMAGE = {
-  enable: false,
-  svg: true,
-  width: 216,
-  height: 46,
-};
+  enable: true,
+  svg: false,
+  width: 24,
+  height: 24,
+}
 
 export const SOCIALS: SocialObjects = [
   {
