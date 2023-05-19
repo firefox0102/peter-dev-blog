@@ -3,7 +3,7 @@ import type { FunctionComponent, PropsWithChildren } from "react"
 export interface IExperiencePageCompanyBlock {
   companyName: string
   startDate: string
-  endDate: string
+  endDate?: string
 }
 
 export const ExperiencePageCompanyBlock: FunctionComponent<
@@ -14,7 +14,8 @@ export const ExperiencePageCompanyBlock: FunctionComponent<
       {/* Header */}
       <h2 className="text-lg font-medium text-skin-accent">{companyName}</h2>
       <p>
-        {startDate} - {endDate}
+        {startDate}
+        {endDate ? ` - ${endDate}` : null}
       </p>
 
       {/* Content divider */}
