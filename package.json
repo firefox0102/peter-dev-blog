@@ -1,6 +1,7 @@
 {
   "name": "srv-peter-dev-blog",
   "version": "2.3.0",
+  "type": "module",
   "scripts": {
     "dev": "astro check --watch & astro dev",
     "start": "astro dev",
@@ -21,6 +22,8 @@
     "astro": "^2.5.0",
     "fuse.js": "^6.6.2",
     "github-slugger": "^2.0.0",
+    "netlify-cli": "^15.1.1",
+    "prettier-plugin-astro": "^0.9.0",
     "remark-collapse": "^0.1.2",
     "remark-toc": "^8.0.1",
     "satori": "^0.8.1",
