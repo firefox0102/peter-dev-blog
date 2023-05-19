@@ -4,7 +4,6 @@ import Hr from "./Hr.astro"
 import LinkButton from "./LinkButton.astro"
 
 import logoPNG from "/assets/logo.png"
-import logoSVG from "/assets/logo.svg"
 
 export interface Props {
   activeNav?: "posts" | "tags" | "about" | "search"
@@ -20,7 +19,7 @@ const { activeNav } = Astro.props
       <a href="/" class="logo flex w-80 items-center">
         <img
           class="mr-2 h-5 w-5"
-          src={LOGO_IMAGE.svg ? logoSVG : logoPNG}
+          src={logoPNG}
           alt="Pete Logo"
           width={LOGO_IMAGE.width}
           height={LOGO_IMAGE.height}
