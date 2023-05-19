@@ -29,7 +29,7 @@
     display: block;
   }
   body {
-    @apply font-sans flex min-h-screen flex-col bg-skin-fill text-skin-base 
+    @apply flex min-h-screen flex-col bg-skin-fill font-sans text-skin-base 
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
 
     font-size: 16px;
@@ -49,6 +49,9 @@
     @apply inline-block h-6 w-6 scale-125 fill-transparent 
     stroke-current stroke-2 opacity-90 group-hover:fill-transparent 
     sm:scale-110;
+  }
+  svg.icon-tabler--sm {
+    @apply scale-75;
   }
   .prose {
     @apply prose-headings:!mb-3 prose-headings:!text-skin-base 
