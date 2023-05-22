@@ -22,7 +22,7 @@ export const SkillsBlock: FunctionComponent<ISkillsBlockProps> = ({
 }) => {
   return (
     <div className="my-2 flex flex-wrap">
-      {label ? <span className="mr-4 text-sm font-medium">{label}</span> : null}
+      {label ? <span className="mr-2 text-xs font-medium">{label}</span> : null}
       {skillLabels &&
         skillLabels.map((label) => <SkillsBlockItem skillLabel={label} />)}
     </div>
