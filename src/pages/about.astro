@@ -52,17 +52,15 @@ import LinkButton from "@components/LinkButton.astro"
           "TypeScript",
           "JavaScript",
           "React",
-          "React Testing Library",
-          "Feature Discovery",
-          "Cypress",
+          "Testing Library",
+          "End to End Testing",
         ]}
       />
       <SkillsBlock
         skillLabels={[
-          "Design Collaboration",
-          "Redux + RTK",
           "RTKQuery",
-          "Mentorship",
+          "Redux + RTK",
+          "Design Collaboration",
           "Frontend Architecture",
         ]}
       />
@@ -73,19 +71,72 @@ import LinkButton from "@components/LinkButton.astro"
     <section class="content-section">
       <h2>Experience</h2>
 
-      <!-- DataGrail Block -->
+      <!-- 1Password Block -->
       <div>
         <ExperiencePageCompanyBlock
-          companyName="DataGrail"
-          startDate="August 2020"
+          companyName="1Password"
+          startDate="December 2023"
           endDate="Present"
         />
         <div class="flex">
           <!-- <ExperienceGroupLeftAdornment /> -->
           <div class="flex flex-col">
             <div class="experience-block">
+              <h5>Senior Software Engineer</h5>
+              <p>December 2023 - Present</p>
+              <p>
+                Frontend focused full stack developer on the 1Password Admin
+                Experience team. Responsibilities included leading projects and
+                ceremonies on a squad of developers, mentoring junior
+                developers, and helping organize the Frontend Guild.
+              </p>
+            </div>
+            <div class="experience-block">
+              <h4>🎉 Things I'm Proud Of 🎉</h4>
+              <ul>
+                <li>
+                  Project Lead for multiple features for the Admin web
+                  application including rebuilding the Team Invitations flow,
+                  Email Customization, and implementation of the company design
+                  system in the web app.
+                </li>
+                <li>
+                  Helped train team on unit/integration testing with React
+                  Testing Library, and End to End testing with Playwright.
+                </li>
+                <li>
+                  Lead efforts to build a new Email focused microservice to help
+                  break up the monolithic 1Password backend
+                </li>
+              </ul>
+              <SkillsBlock
+                label="Skills & Stack: "
+                skillLabels={[
+                  "TypeScript",
+                  "React",
+                  "Golang",
+                  "Playwright",
+                  "Testing Library",
+                ]}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DataGrail Block -->
+      <div>
+        <ExperiencePageCompanyBlock
+          companyName="DataGrail"
+          startDate="August 2020"
+          endDate="December 2023"
+        />
+        <div class="flex">
+          <!-- <ExperienceGroupLeftAdornment /> -->
+          <div class="flex flex-col">
+            <div class="experience-block">
               <h5>Staff Software Engineer</h5>
-              <p>August 2020 - Present</p>
+              <p>August 2020 - December 2023</p>
               <p>
                 Hired on as the first Frontend focused developer for the
                 engineering team. Engineering teams were struggling to build out
