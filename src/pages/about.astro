@@ -20,7 +20,10 @@ import LinkButton from "@components/LinkButton.astro"
         <p>Seattle, Wa</p>
       </div>
       <div class="flex items-end justify-between">
-        <p><span class="font-medium">Personal Site:</span> peterfinn.dev</p>
+        <p class="font-medium">
+          <Fragment set:html={socialIcons["CodePen"]} />
+          peterfinn.dev
+        </p>
         <LinkButton
           href={githubSocial.href}
           className="link-button text-xs flex items-center"
@@ -31,7 +34,10 @@ import LinkButton from "@components/LinkButton.astro"
         </LinkButton>
       </div>
       <div class="flex items-end justify-between">
-        <p class="mr-2">peter.finn.code@gmail.com</p>
+        <p class="">
+          <Fragment set:html={socialIcons["Mail"]} />
+          peter.finn.code@gmail.com
+        </p>
         <LinkButton
           href={linkedInSocial.href}
           className="link-button flex text-xs items-center"
@@ -52,16 +58,10 @@ import LinkButton from "@components/LinkButton.astro"
           "TypeScript",
           "JavaScript",
           "React",
+          "Feature Discovery",
           "Testing Library",
           "End to End Testing",
-        ]}
-      />
-      <SkillsBlock
-        skillLabels={[
-          "RTKQuery",
-          "Redux + RTK",
-          "Design Collaboration",
-          "Frontend Architecture",
+          "RTKQuery/Redux",
         ]}
       />
     </section>
@@ -95,18 +95,24 @@ import LinkButton from "@components/LinkButton.astro"
               <h4>🎉 Things I'm Proud Of 🎉</h4>
               <ul>
                 <li>
+                  Helped lead the effort to update the 1Password Admin web app
+                  from monolithic Class Components (with no tests) to modern
+                  React code using Hooks and React Testing Library
+                </li>
+                <li>
+                  Lead multi team effort to build a new Email focused
+                  microservice to help incrementally break up the monolithic
+                  1Password backend
+                </li>
+                <li>
                   Project Lead for multiple features for the Admin web
                   application including rebuilding the Team Invitations flow,
                   Email Customization, and implementation of the company design
-                  system in the web app.
+                  system in the web app
                 </li>
                 <li>
                   Helped train team on unit/integration testing with React
-                  Testing Library, and End to End testing with Playwright.
-                </li>
-                <li>
-                  Lead efforts to build a new Email focused microservice to help
-                  break up the monolithic 1Password backend
+                  Testing Library, and End to End testing with Playwright
                 </li>
               </ul>
               <SkillsBlock
